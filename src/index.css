@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+  min-height: calc(100vh - 4rem - 224px);
+}
+
+.card {
+  overflow: hidden;
+}
+
+.card:hover > figure img {
+  transform: scale(120%);
+}
+
+.card figure img {
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.fill-current {
+  fill: currentColor;
+}
+.carousel-slide {
+  height: 700px;
+}
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.carousel-slide:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000001a;
+}
+
+@media screen and (max-width: 1024px) {
+  .carousel-slide {
+    height: 220px;
+  }
+  .carousel-slide .carousel-description {
+    bottom: 0;
+  }
+  .control-arrow {
+    display: none;
+  }
+}
