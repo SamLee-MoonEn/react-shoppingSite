@@ -1,17 +1,25 @@
 import { Link } from 'react-router-dom'
-import { useRecoilValueLoadable, useRecoilValue } from 'recoil'
+import { useRecoilValueLoadable, useRecoilValue, useRecoilState } from 'recoil'
 import { productsList } from '../store/products'
-import { Product } from '../model/Props'
+import { Product, CartState } from '../model/Props'
 import { toCurrencyFormat } from '../helpers/helpers'
-import { cartState } from '../store/cartItem'
+import { addToCart, cartState, removeFromCart } from '../store/cartItem'
+import { useEffect, useState } from 'react'
 
 export default function CartCard({ id }: Record<string, string>) {
+  const [cart, setCart] = useRecoilState<CartState>(cartState)
   const ProductsLoadable = useRecoilValueLoadable<Product[]>(productsList)
   const itemCount = useRecoilValue(cartState)[id].count
   let products: Product[] =
     'hasValue' === ProductsLoadable.state ? ProductsLoadable.contents : []
   products = products.filter((item) => item.id === Number(id))
 
+  const addCartItemHandler = () => {
+    setCart(addToCart(cart, Number(id)))
+  }
+  const removeCartItemHandler = () => {
+    setCart(removeFromCart(cart, Number(id)))
+  }
   return (
     <div className="lg:flex justify-between mb-20">
       <div className="lg:flex lg:items-center mt-4 px-2 lg:px-0">
@@ -30,9 +38,13 @@ export default function CartCard({ id }: Record<string, string>) {
             {toCurrencyFormat(products[0].price)}
           </p>
           <div className="card-actions">
-            <button className="btn btn-primary">-</button>
+            <button className="btn btn-primary" onClick={removeCartItemHandler}>
+              -
+            </button>
             <button className="btn btn-ghost no-animation">{itemCount}</button>
-            <button className="btn btn-primary">+</button>
+            <button className="btn btn-primary" onClick={addCartItemHandler}>
+              +
+            </button>
           </div>
         </div>
       </div>
