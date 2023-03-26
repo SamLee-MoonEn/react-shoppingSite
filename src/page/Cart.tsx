@@ -1,10 +1,12 @@
 import { useRecoilValue } from 'recoil'
+import { useEffect } from 'react'
 
 import BreadCrumbs from '../component/BreadCrumbs'
 import EmptyCart from '../component/EmptyCart'
 import CartCard from '../component/CartCard'
-import { cartState, cartTotalPrice } from '../store/cartItem'
+import { cartState, cartTotalPrice, clearFromCart } from '../store/cartItem'
 import { toCurrencyFormat } from '../helpers/helpers'
+import useCartLoad from '../composable/useCartLoad'
 
 export default function Cart(): JSX.Element {
   const cartStore = useRecoilValue(cartState)
@@ -39,7 +41,11 @@ export default function Cart(): JSX.Element {
             <h3 className="font-bold text-lg">정말로 구매하시겠습니까?</h3>
             <p className="py-4">장바구니의 모든 상품들이 삭제됩니다.</p>
             <div className="modal-action">
-              <label htmlFor="confirm-modal" className="btn btn-primary">
+              <label
+                htmlFor="confirm-modal"
+                className="btn btn-primary"
+                onClick={clearFromCart}
+              >
                 네
               </label>
               <label htmlFor="confirm-modal" className="btn btn-outline">

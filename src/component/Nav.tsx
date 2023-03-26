@@ -1,5 +1,5 @@
 import Tab from './Tab'
-import Search from './Search'
+import SearchContainer from './SearchContainer'
 
 export default function Nav() {
   return (
@@ -32,7 +32,7 @@ export default function Nav() {
           </a>
         </h1>
         <Tab />
-        <Search />
+        <SearchContainer />
       </div>
     </div>
   )

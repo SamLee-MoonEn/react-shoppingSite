@@ -20,7 +20,7 @@ export interface CartState {
 
 export const cartState = atom<CartState>({
   key: 'cart',
-  default: JSON.parse(localStorage.getItem('CART_ITEM') as string) ?? {},
+  default: JSON.parse(localStorage.getItem(CART_ITEM) as string) ?? {},
 })
 
 export const cartCount = selector<number>({
@@ -64,4 +64,8 @@ export const removeFromCart = (cart: CartState, id: number) => {
   } else {
     return { ...tempCart, [id]: { id: id, count: cart[id].count - 1 } }
   }
+}
+
+export const clearFromCart = () => {
+  localStorage.removeItem(CART_ITEM)
 }
