@@ -18,8 +18,7 @@ export default function SearchContainer(): JSX.Element {
             fill="none"
             stroke="white"
             viewBox="0 0 24 24"
-            className="h-6 w-6 stroke-gray-700 dark:stroke-wh
-            "
+            className="h-6 w-6 stroke-gray-700 dark:stroke-white"
           >
             <path
               strokeLinecap="round"

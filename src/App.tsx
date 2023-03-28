@@ -12,6 +12,7 @@ import Error from './page/Error'
 import ProductView from './page/ProductView'
 import SideBar from './component/SideBar'
 import useCartLoad from './composable/useCartLoad'
+import { ScrollToTop } from './helpers/helpers'
 
 function App() {
   const $sidebarIcon = useRef<HTMLInputElement>(null)
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <main className="drawer">
         <input
           type="checkbox"

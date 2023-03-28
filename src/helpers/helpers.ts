@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+
 const currencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
@@ -6,4 +9,12 @@ const currencyFormat = new Intl.NumberFormat('en-US', {
 
 export function toCurrencyFormat(value: number) {
   return currencyFormat.format(value)
+}
+
+export function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
 }

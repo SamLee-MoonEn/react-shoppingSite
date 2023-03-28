@@ -42,7 +42,11 @@ export interface CartItems {
 }
 
 export interface CartState {
-  items: Record<string | number, CartInfo>
+  items?: Record<string | number, CartInfo>
 }
 
 export interface CategoryProps {}
+
+export interface Item {
+  item: CartItems
+}

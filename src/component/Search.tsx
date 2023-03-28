@@ -51,6 +51,13 @@ export default function Search(): JSX.Element {
       resetInput()
     }
   }
+  const toggleSearch = () => {
+    $searchInput?.current?.classList.toggle('-z-10')
+    $searchInput?.current?.classList.toggle('translate-y-full')
+    $searchInput?.current?.classList.toggle('!opacity-100')
+    $searchInput?.current?.blur()
+    resetInput()
+  }
 
   useEffect(() => {
     if (!searchValue) {
@@ -69,6 +76,7 @@ export default function Search(): JSX.Element {
       <button
         type="button"
         className="flex sm:hidden w-10 sm:w-auto mx-0 px-0 sm:mx-2 sm:px-2 btn btn-ghost"
+        onClick={toggleSearch}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -85,14 +93,15 @@ export default function Search(): JSX.Element {
         </svg>
       </button>
       <input
-        className="fixed left-0 top-4 -z-10 opacity-0 sm:opacity-100 sm:static sm:flex w-full input input-ghost focus:outline-0 rounded-none sm:rounded bg-gray-300 dark:bg-gray-600 !text-gray-800 dark:!text-white sm:transform-none transition-all js-searchInput"
+        type="text"
+        className="fixed left-0 top-4 -z-10 opacity-0 sm:opacity-100 sm:static sm:flex w-full input input-ghost focus:outline-0 rounded-none sm:rounded bg-gray-300 dark:bg-gray-600 !text-gray-800 dark:!text-white sm:transform-none transition-all"
         placeholder="검색"
         value={searchValue}
         onChange={handleChangeValue}
         onKeyDown={focusSearchList}
         ref={$searchInput}
       />
-      <ul className="!fixed left-0 sm:!absolute sm:top-14 menu dropdown-content w-full sm:w-64 max-h-96 shadow text-base-content overflow-y-auto bg-white dark:bg-gray-600 flex-nowrap">
+      <ul className="!fixed left-0 sm:!absolute top-28 sm:top-14 menu dropdown-content w-full sm:w-64 max-h-96 shadow text-base-content overflow-y-auto bg-white dark:bg-gray-600 flex-nowrap">
         {productList.map(({ id, title }) => {
           return (
             <li key={id} onKeyDown={changeSearchItem} onClick={resetInput}>

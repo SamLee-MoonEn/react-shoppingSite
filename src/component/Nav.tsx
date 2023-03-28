@@ -3,7 +3,7 @@ import SearchContainer from './SearchContainer'
 
 export default function Nav() {
   return (
-    <div className="fixed z-10 w-full navbar shadow-lg bg-white dark:bg-neutral text-neutral-content">
+    <div className="fixed z-10 navbar shadow-lg bg-white dark:bg-neutral text-neutral-content">
       <div className="flex w-full xl:container xl:m-auto">
         <label
           htmlFor="side-menu"

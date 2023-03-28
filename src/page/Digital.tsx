@@ -12,6 +12,10 @@ export default function Fashion(): JSX.Element {
     'hasValue' === ProductsLoadable.state ? ProductsLoadable.contents : []
   products = products.filter((item) => item.category === 'electronics')
 
+  if ('loading' === ProductsLoadable.state) {
+    return <div className="pt-24 pb-8 px-4">Loading...</div>
+  }
+  
   return (
     <>
       <section className="main pt-16">

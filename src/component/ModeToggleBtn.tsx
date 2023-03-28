@@ -1,21 +1,32 @@
-export default function ModeToggleBtn() {
-  const isDarkMode =
-    window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches
+import { useEffect, useState } from 'react'
 
-  const modeToggle = (e: React.MouseEvent<HTMLLabelElement>) => {
-    console.log(e.target)
-    const htmlDOM = document.querySelector('html') as HTMLHtmlElement
-    if (!htmlDOM.classList.contains('dark')) {
-      htmlDOM.classList.add('dark')
-    } else {
-      htmlDOM.classList.remove('dark')
+export default function ModeToggleBtn() {
+  const $htmlDOM = document.querySelector('html') as HTMLHtmlElement
+  const themeValue = localStorage.getItem('theme') || 'dark'
+  const [theme, setTheme] = useState(themeValue)
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+    if (theme === 'dark' || !$htmlDOM.classList.contains('dark')) {
+      $htmlDOM.classList.add('dark')
+      $htmlDOM.dataset['theme'] = 'dark'
+    } else if (theme === 'light' || !!$htmlDOM.classList.contains('dark')) {
+      $htmlDOM.classList.remove('dark')
+      $htmlDOM.dataset['theme'] = 'light'
     }
+  }, [theme])
+
+  const modeToggle = (e: React.MouseEvent<HTMLInputElement>) => {
+    theme === 'dark' ? setTheme('light') : setTheme('dark')
   }
 
   return (
-    <label onClick={modeToggle} className="swap swap-rotate mr-2 sm:mr-4">
-      <input type="checkbox"/>
+    <label className="swap swap-rotate mr-2 sm:mr-4">
+      <input
+        type="checkbox"
+        onClick={modeToggle}
+        checked={theme === 'dark' ? true : false}
+      />
       <svg
         className="swap-on fill-white w-7 h-7"
         xmlns="http://www.w3.org/2000/svg"
