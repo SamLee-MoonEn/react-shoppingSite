@@ -1,8 +1,4 @@
-interface snsIconsProps {
-  name: string
-  href: string
-  icon: () => JSX.Element
-}
+import { snsIconsProps } from '../../src/model/Props'
 
 export const snsIcons: snsIconsProps[] = [
   {

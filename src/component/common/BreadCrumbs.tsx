@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { BreadCrumbsProps } from '../model/Props'
+import { BreadCrumbsProps } from '../../model/Props'
 
 const Category: any = {
   "men's clothing": { title: '패션', href: '/fashion' },

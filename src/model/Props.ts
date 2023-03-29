@@ -50,3 +50,10 @@ export interface CategoryProps {}
 export interface Item {
   item: CartItems
 }
+
+export interface snsIconsProps {
+  name: string
+  href: string
+  icon: () => JSX.Element
+}
+
