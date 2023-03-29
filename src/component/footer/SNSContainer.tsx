@@ -1,4 +1,4 @@
-import snsIcons from '../../public/assets/SNSIcons'
+import snsIcons from '../../../public/assets/SNSIcons'
 
 export default function SNSContainer() {
   return (

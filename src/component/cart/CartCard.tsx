@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { CartState, Item } from '../model/Props'
-import { toCurrencyFormat } from '../helpers/helpers'
-import { addToCart, cartState, removeFromCart } from '../store/cartItem'
+import { CartState, Item } from '../../model/Props'
+import { toCurrencyFormat } from '../../helpers/helpers'
+import { addToCart, cartState, removeFromCart } from '../../store/cartItem'
 
 export default function CartCard({ item }: Item) {
   const [cart, setCart] = useRecoilState<CartState>(cartState)

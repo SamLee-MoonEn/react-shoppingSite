@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useRef } from 'react'
 
-import Nav from './component/Nav'
+import Nav from './page/Nav'
 import MainSection from './page/MainSection'
-import Footer from './component/Footer'
+import Footer from './page/Footer'
 import Fashion from './page/Fashion'
 import Accessory from './page/Accessory'
 import Digital from './page/Digital'

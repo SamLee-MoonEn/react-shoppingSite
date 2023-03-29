@@ -1,5 +1,5 @@
-import CardContainer from './CardContainer'
-import SNSContainer from './SNSContainer'
+import CardContainer from '../component/footer/CardContainer'
+import SNSContainer from '../component/footer/SNSContainer'
 
 export default function Footer() {
   return (

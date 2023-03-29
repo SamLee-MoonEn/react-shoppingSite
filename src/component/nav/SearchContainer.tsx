@@ -1,6 +1,6 @@
 import { useRecoilValue } from 'recoil'
 import { Link } from 'react-router-dom'
-import { cartCount } from '../store/cartItem'
+import { cartCount } from '../../store/cartItem'
 import ModeToggleBtn from './ModeToggleBtn'
 import Search from './Search'
 

@@ -2,9 +2,8 @@ import { useRecoilValueLoadable } from 'recoil'
 import { productsList } from '../store/products'
 import { Product } from '../model/Props'
 
-import CarouselComp from '../component/Carousel'
+import CarouselComp from '../component/carousel/Carousel'
 import MainProductsList from '../component/MainProductsList'
-
 
 export default function MainSection(): JSX.Element {
   const ProductsLoadable = useRecoilValueLoadable<Product[]>(productsList)

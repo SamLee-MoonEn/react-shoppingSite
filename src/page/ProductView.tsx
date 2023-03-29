@@ -4,11 +4,13 @@ import { useRecoilValueLoadable } from 'recoil'
 import { productsList } from '../store/products'
 import { Product } from '../model/Props'
 
-import SuspenseCard from '../component/Suspense'
-import BreadCrumbs from '../component/BreadCrumbs'
+import SuspenseCard from '../component/common/Suspense'
+import BreadCrumbs from '../component/common/BreadCrumbs'
 
 export default function ProductView(): JSX.Element {
-  const ProductDetail = React.lazy(() => import('../component/ProductDetail'))
+  const ProductDetail = React.lazy(
+    () => import('../component/common/ProductDetail'),
+  )
   const ProductsLoadable = useRecoilValueLoadable<Product[]>(productsList)
   let products: Product[] =
     'hasValue' === ProductsLoadable.state ? ProductsLoadable.contents : []

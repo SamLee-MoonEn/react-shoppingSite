@@ -2,8 +2,8 @@ import { useEffect, useState, useRef } from 'react'
 import { useRecoilValueLoadable } from 'recoil'
 import { Link } from 'react-router-dom'
 
-import { Product } from '../model/Props'
-import { productsList } from '../store/products'
+import { Product } from '../../model/Props'
+import { productsList } from '../../store/products'
 
 export default function Search(): JSX.Element {
   const [searchValue, setSearchValue] = useState('')

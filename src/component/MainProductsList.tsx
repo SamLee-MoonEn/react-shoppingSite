@@ -3,7 +3,7 @@ import { useRecoilValueLoadable } from 'recoil'
 
 import { Product } from '../model/Props'
 import { productsList } from '../store/products'
-import SuspenseCard from '../component/Suspense'
+import SuspenseCard from '../component/common/Suspense'
 
 const limit = 4
 
@@ -12,7 +12,7 @@ export default function MainProductsList({
 }: {
   title: string
 }): JSX.Element {
-  const ProductCard = React.lazy(() => import('./ProductCard'))
+  const ProductCard = React.lazy(() => import('./common/ProductCard'))
   const ProductsLoadable = useRecoilValueLoadable<Product[]>(productsList)
   let products: Product[] =
     'hasValue' === ProductsLoadable.state ? ProductsLoadable.contents : []

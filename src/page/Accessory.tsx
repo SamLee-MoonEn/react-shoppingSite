@@ -2,11 +2,13 @@ import React, { Suspense } from 'react'
 import { useRecoilValueLoadable, useRecoilTransaction_UNSTABLE } from 'recoil'
 import { Product } from '../model/Props'
 import { productsList } from '../store/products'
-import BreadCrumbs from '../component/BreadCrumbs'
-import SuspenseCard from '../component/Suspense'
+import BreadCrumbs from '../component/common/BreadCrumbs'
+import SuspenseCard from '../component/common/Suspense'
 
 export default function Fashion(): JSX.Element {
-  const ProductCard = React.lazy(() => import('../component/ProductCard'))
+  const ProductCard = React.lazy(
+    () => import('../component/common/ProductCard'),
+  )
   const ProductsLoadable = useRecoilValueLoadable<Product[]>(productsList)
   let products: Product[] =
     'hasValue' === ProductsLoadable.state ? ProductsLoadable.contents : []
@@ -25,7 +27,7 @@ export default function Fashion(): JSX.Element {
           </h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 item_list">
             {products.map((e) => (
-              <Suspense key={e.id} fallback={<div>Now Loading...</div>}>
+              <Suspense key={e.id} fallback={<SuspenseCard />}>
                 <ProductCard product={e} />
               </Suspense>
             ))}

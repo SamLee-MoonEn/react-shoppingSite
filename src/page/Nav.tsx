@@ -1,5 +1,5 @@
-import Tab from './Tab'
-import SearchContainer from './SearchContainer'
+import Tab from '../component/nav/Tab'
+import SearchContainer from '../component/nav/SearchContainer'
 
 export default function Nav() {
   return (

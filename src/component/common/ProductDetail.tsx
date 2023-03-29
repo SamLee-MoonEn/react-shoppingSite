@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 
-import { toCurrencyFormat } from '../helpers/helpers'
-import { ProductDetailProps } from '../model/Props'
-import { cartState, addToCart } from '../store/cartItem'
-import { CartState } from '../model/Props'
+import { toCurrencyFormat } from '../../helpers/helpers'
+import { ProductDetailProps } from '../../model/Props'
+import { cartState, addToCart } from '../../store/cartItem'
+import { CartState } from '../../model/Props'
+
 import Rating from './Rating'
 
 export default function ProductDetail({

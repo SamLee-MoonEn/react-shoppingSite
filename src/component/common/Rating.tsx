@@ -1,4 +1,4 @@
-import { RatingProps } from '../model/Props'
+import { RatingProps } from '../../model/Props'
 import cx from 'clsx'
 
 export default function Rating({ rating }: RatingProps): JSX.Element {

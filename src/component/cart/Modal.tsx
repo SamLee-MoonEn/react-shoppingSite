@@ -1,6 +1,6 @@
 import { useRecoilState } from 'recoil'
-import { CartState } from '../model/Props'
-import { cartState } from '../store/cartItem'
+import { CartState } from '../../model/Props'
+import { cartState } from '../../store/cartItem'
 
 export default function Modal(): JSX.Element {
   const [cart, setCart] = useRecoilState<CartState>(cartState)

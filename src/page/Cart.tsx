@@ -1,13 +1,14 @@
-import { useRecoilValue, useRecoilValueLoadable } from 'recoil'
+import { useRecoilValueLoadable } from 'recoil'
 import cx from 'clsx'
 
-import BreadCrumbs from '../component/BreadCrumbs'
-import EmptyCart from '../component/EmptyCart'
-import CartCard from '../component/CartCard'
 import { cartList, cartTotalPrice } from '../store/cartItem'
 import { toCurrencyFormat } from '../helpers/helpers'
-import Modal from '../component/Modal'
 import { CartItems } from '../model/Props'
+
+import BreadCrumbs from '../component/common/BreadCrumbs'
+import EmptyCart from '../component/cart/EmptyCart'
+import CartCard from '../component/cart/CartCard'
+import Modal from '../component/cart/Modal'
 
 export default function Cart(): JSX.Element {
   const cartLoadable = useRecoilValueLoadable<CartItems[]>(cartList)

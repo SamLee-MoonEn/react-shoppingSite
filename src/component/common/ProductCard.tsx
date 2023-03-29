@@ -1,5 +1,5 @@
-import { Product } from '../model/Props'
-import { toCurrencyFormat } from '../helpers/helpers'
+import { Product } from '../../model/Props'
+import { toCurrencyFormat } from '../../helpers/helpers'
 import { Link } from 'react-router-dom'
 
 export default function ProductCard({ product }: { product: Product }) {

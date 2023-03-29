@@ -2,11 +2,13 @@ import React, { Suspense } from 'react'
 import { useRecoilValueLoadable, useRecoilTransaction_UNSTABLE } from 'recoil'
 import { Product } from '../model/Props'
 import { productsList } from '../store/products'
-import BreadCrumbs from '../component/BreadCrumbs'
-import SuspenseCard from '../component/Suspense'
+import BreadCrumbs from '../component/common/BreadCrumbs'
+import SuspenseCard from '../component/common/Suspense'
 
 export default function Fashion(): JSX.Element {
-  const ProductCard = React.lazy(() => import('../component/ProductCard'))
+  const ProductCard = React.lazy(
+    () => import('../component/common/ProductCard'),
+  )
   const ProductsLoadable = useRecoilValueLoadable<Product[]>(productsList)
   let products: Product[] =
     'hasValue' === ProductsLoadable.state ? ProductsLoadable.contents : []

@@ -1,4 +1,4 @@
-import { CarouselItemProps } from '../model/Props'
+import { CarouselItemProps } from '../../model/Props'
 
 export default function CarouselItem({ item }: CarouselItemProps) {
   return (

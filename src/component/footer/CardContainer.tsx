@@ -1,4 +1,4 @@
-import cards from '../../public/assets/cardIcons'
+import cards from '../../../public/assets/cardIcons'
 
 export default function CardContainer() {
   return (
