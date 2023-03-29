@@ -4,29 +4,28 @@ export default function ModeToggleBtn() {
   const $htmlDOM = document.querySelector('html') as HTMLHtmlElement
   const themeValue = localStorage.getItem('theme') || 'dark'
   const [theme, setTheme] = useState(themeValue)
+  const [checked, setChecked] = useState(false)
 
   useEffect(() => {
     localStorage.setItem('theme', theme)
     if (theme === 'dark' || !$htmlDOM.classList.contains('dark')) {
       $htmlDOM.classList.add('dark')
       $htmlDOM.dataset['theme'] = 'dark'
+      setChecked(true)
     } else if (theme === 'light' || !!$htmlDOM.classList.contains('dark')) {
       $htmlDOM.classList.remove('dark')
       $htmlDOM.dataset['theme'] = 'light'
+      setChecked(false)
     }
   }, [theme])
 
-  const modeToggle = (e: React.MouseEvent<HTMLInputElement>) => {
+  const modeToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     theme === 'dark' ? setTheme('light') : setTheme('dark')
   }
 
   return (
     <label className="swap swap-rotate mr-2 sm:mr-4">
-      <input
-        type="checkbox"
-        onClick={modeToggle}
-        checked={theme === 'dark' ? true : false}
-      />
+      <input type="checkbox" onChange={modeToggle} checked={checked} />
       <svg
         className="swap-on fill-white w-7 h-7"
         xmlns="http://www.w3.org/2000/svg"
