@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 import Nav from './page/Nav'
 import MainSection from './page/MainSection'

@@ -14,7 +14,7 @@ export function toCurrencyFormat(value: number) {
 export function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => {
-    window.scrollTo(0, 0)
+    document.getElementsByClassName('drawer-content')[0].scrollTo(0, 0)
   }, [pathname])
   return null
 }
